@@ -19,6 +19,12 @@
 		40E53F0F1729F71E001664EC /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E53F061729F71E001664EC /* DDXMLDocument.m */; };
 		40E53F101729F71E001664EC /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E53F081729F71E001664EC /* DDXMLElement.m */; };
 		40E53F111729F71E001664EC /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E53F0A1729F71E001664EC /* DDXMLNode.m */; };
+		40FBBDA0172CC14000AAD9CC /* DDXMLElementAdditions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E53EFF1729F71E001664EC /* DDXMLElementAdditions.h */; };
+		40FBBDA1172CC14000AAD9CC /* NSString+DDXML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E53F021729F71E001664EC /* NSString+DDXML.h */; };
+		40FBBDA2172CC14000AAD9CC /* DDXML.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E53F041729F71E001664EC /* DDXML.h */; };
+		40FBBDA3172CC14000AAD9CC /* DDXMLDocument.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E53F051729F71E001664EC /* DDXMLDocument.h */; };
+		40FBBDA4172CC14000AAD9CC /* DDXMLElement.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E53F071729F71E001664EC /* DDXMLElement.h */; };
+		40FBBDA5172CC14000AAD9CC /* DDXMLNode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 40E53F091729F71E001664EC /* DDXMLNode.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +44,12 @@
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
+				40FBBDA0172CC14000AAD9CC /* DDXMLElementAdditions.h in CopyFiles */,
+				40FBBDA1172CC14000AAD9CC /* NSString+DDXML.h in CopyFiles */,
+				40FBBDA2172CC14000AAD9CC /* DDXML.h in CopyFiles */,
+				40FBBDA3172CC14000AAD9CC /* DDXMLDocument.h in CopyFiles */,
+				40FBBDA4172CC14000AAD9CC /* DDXMLElement.h in CopyFiles */,
+				40FBBDA5172CC14000AAD9CC /* DDXMLNode.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
