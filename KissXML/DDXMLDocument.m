@@ -105,6 +105,28 @@
 	return [self initWithDocPrimitive:doc owner:nil];
 }
 
+- (id)initWithRootElement:(DDXMLElement *)element
+{
+	unsigned char verison[] = "1.0";
+	xmlDocPtr doc = xmlNewDoc(verison);
+	
+	self = [self initWithDocPrimitive:doc owner:nil];
+	if (self) {
+		[self setRootElement: element];
+	}
+	
+	return self;
+}
+
+
+- (void)setRootElement:(DDXMLNode *)root
+{
+	xmlNodePtr node = (xmlNodePtr)root->genericPtr;
+	xmlDocPtr doc = (xmlDocPtr)genericPtr;
+	
+	xmlDocSetRootElement(doc, node);
+}
+
 /**
  * Returns the root element of the receiver.
 **/
