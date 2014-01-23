@@ -22,7 +22,7 @@
 
 
 #ifndef DDXML_NS_DECLARATIONS_ENABLED
-#define DDXML_NS_DECLARATIONS_ENABLED 0  // Disabled by default
+#define DDXML_NS_DECLARATIONS_ENABLED 1  // Disabled by default
 #endif
 
 #if TARGET_OS_IPHONE && DDXML_NS_DECLARATIONS_ENABLED
