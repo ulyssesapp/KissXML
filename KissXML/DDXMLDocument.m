@@ -179,12 +179,7 @@
 		return NO;
 	
 	DDXMLDocument *other = (DDXMLDocument *)object;
-	BOOL result = (self.rootElement == other.rootElement || [self.rootElement isEqual: other.rootElement]);
-	
-	if (!result)
-		return result;
-	else
-		return result;
+	return (self.rootElement == other.rootElement || [self.rootElement isEqual: other.rootElement]);
 }
 
 @end

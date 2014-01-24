@@ -373,17 +373,12 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 		return NO;
 	DDXMLNode *other = (DDXMLNode *)object;
 	
-	BOOL result = (self.kind == other.kind
+	return (self.kind == other.kind
 			&& (self.name == other.name || [self.name isEqualToString: other.name])
 			&& (self.stringValue == other.stringValue || [self.stringValue isEqualToString: other.stringValue])
 			&& (self.URI == other.URI || [self.URI isEqualToString: other.URI])
 			&& self.childCount == other.childCount
 			&& (self.children == other.children || [self.children isEqualToArray: other.children]));
-	
-	if (!result)
-		return result;
-	else
-		return result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
