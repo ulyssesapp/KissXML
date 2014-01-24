@@ -167,4 +167,24 @@
 	return [[self XMLStringWithOptions:options] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Equality
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+- (BOOL)isEqual:(id)object
+{
+	if (![super isEqual: object])
+		return NO;
+	
+	DDXMLDocument *other = (DDXMLDocument *)object;
+	BOOL result = (self.rootElement == other.rootElement || [self.rootElement isEqual: other.rootElement]);
+	
+	if (!result)
+		return result;
+	else
+		return result;
+}
+
 @end

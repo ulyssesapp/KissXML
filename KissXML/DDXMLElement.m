@@ -797,4 +797,26 @@
 	}
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Equality
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+- (BOOL)isEqual:(id)object
+{
+	if (![super isEqual: object])
+		return NO;
+	
+	DDXMLElement *other = (DDXMLElement *)object;
+	BOOL result = ((self.attributes == other.attributes || [self.attributes isEqualToArray: other.attributes])
+//				   && (self.namespaces == other.namespaces || [self.namespaces isEqualToArray: other.namespaces])
+				   );
+	
+	if (!result)
+		return result;
+	else
+		return result;
+}
+
 @end

@@ -367,23 +367,23 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 #pragma mark Equality
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (BOOL)isEqual:(id)anObject
+- (BOOL)isEqual:(id)object
 {
-	// DDXMLNode, DDXMLElement, and DDXMLDocument are simply light-weight wrappers atop a libxml structure.
-	// 
-	// To provide maximum speed and thread-safety,
-	// multiple DDXML wrapper objects may be created that wrap the same underlying libxml node.
-	// 
-	// Thus equality is simply a matter of what underlying libxml node DDXML is wrapping.
+	if (![object isKindOfClass: DDXMLNode.class])
+		return NO;
+	DDXMLNode *other = (DDXMLNode *)object;
 	
-	if ([anObject class] == [self class])
-	{
-		DDXMLNode *aNode = (DDXMLNode *)anObject;
-		
-		return (genericPtr == aNode->genericPtr);
-	}
+	BOOL result = (self.kind == other.kind
+			&& (self.name == other.name || [self.name isEqualToString: other.name])
+			&& (self.stringValue == other.stringValue || [self.stringValue isEqualToString: other.stringValue])
+			&& (self.URI == other.URI || [self.URI isEqualToString: other.URI])
+			&& self.childCount == other.childCount
+			&& (self.children == other.children || [self.children isEqualToArray: other.children]));
 	
-	return NO;
+	if (!result)
+		return result;
+	else
+		return result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1997,6 +1997,7 @@ static void MyErrorHandler(void * userData, xmlErrorPtr error)
 		[[[NSThread currentThread] threadDictionary] setObject:errorObject forKey:DDLastErrorKey];
 	}
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Zombie Tracking
