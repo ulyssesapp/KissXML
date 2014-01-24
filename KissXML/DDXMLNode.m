@@ -2106,7 +2106,7 @@ static void MarkBirth(void *xmlPtr, DDXMLNode *wrapper)
 {
 	// This method only exists if DDXML_DEBUG_MEMORY_ISSUES is enabled.
 	
-	const void *value = (void *)wrapper;
+	const void *value = (__bridge void *)wrapper;
 	
 	dispatch_async(zombieQueue, ^{
 		
@@ -2132,7 +2132,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper)
 {
 	// This method only exists if DDXML_DEBUG_MEMORY_ISSUES is enabled.
 	
-	const void *value = (void *)wrapper;
+	const void *value = (__bridge void *)wrapper;
 	
 	dispatch_async(zombieQueue, ^{
 		
@@ -2157,7 +2157,7 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 	
 	__block BOOL result;
 	
-	const void *value = (void *)wrapper;
+	const void *value = (__bridge void *)wrapper;
 	
 	dispatch_sync(zombieQueue, ^{
 		
