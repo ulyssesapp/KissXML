@@ -809,14 +809,13 @@
 		return NO;
 	
 	DDXMLElement *other = (DDXMLElement *)object;
-	BOOL result = ((self.attributes == other.attributes || [self.attributes isEqualToArray: other.attributes])
-//				   && (self.namespaces == other.namespaces || [self.namespaces isEqualToArray: other.namespaces])
-				   );
 	
-	if (!result)
-		return result;
-	else
-		return result;
+	
+	// Sort attributes since the order is not important
+	NSArray *attrs1 = [self.attributes sortedArrayUsingDescriptors: @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	NSArray *attrs2 = [other.attributes sortedArrayUsingDescriptors: @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+	
+	return (attrs1 == attrs2 || [attrs1 isEqual: attrs2]);
 }
 
 @end
