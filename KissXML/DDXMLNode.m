@@ -231,6 +231,10 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 {
 	self = [super init];
 	
+#if DEBUG
+	NSAssert(NO, @"Invalid node created!");
+#endif
+	
 	if ([self isKindOfClass:[DDXMLInvalidNode class]])
 	{
 		return self;
