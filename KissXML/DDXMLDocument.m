@@ -121,10 +121,15 @@
 
 - (void)setRootElement:(DDXMLNode *)root
 {
-	xmlNodePtr node = (xmlNodePtr)root->genericPtr;
-	xmlDocPtr doc = (xmlDocPtr)genericPtr;
+	// NSXML version uses these same assertions
+	DDXMLAssert([root _hasParent] == NO, @"Cannot add a child that has a parent; detach or copy first");
+	DDXMLAssert(IsXmlNodePtr(root->genericPtr),
+	            @"Elements can only have text, elements, processing instructions, and comments as children");
 	
-	xmlDocSetRootElement(doc, node);
+	xmlDocSetRootElement((xmlDocPtr)genericPtr, (xmlNodePtr)root->genericPtr);
+	
+	// The node is now part of the xml tree heirarchy
+	root->owner = self;
 }
 
 /**
