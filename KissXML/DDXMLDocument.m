@@ -92,7 +92,7 @@
 	xmlKeepBlanksDefault(0);
 	
 	[DDXMLNode installErrorHandlersInThread];
-	xmlDocPtr doc = xmlParseMemory([data bytes], [data length]);
+	xmlDocPtr doc = xmlParseMemory([data bytes], (int)[data length]);
 	if (doc == NULL)
 	{
 		NSError *lastError = [DDXMLNode lastError];
