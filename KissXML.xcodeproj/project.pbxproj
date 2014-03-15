@@ -238,6 +238,7 @@
 		40E53ECB1729F68F001664EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Robbie Hanson with modifications from Tipbit, Inc.";
 			};
