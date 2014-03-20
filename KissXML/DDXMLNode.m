@@ -231,6 +231,10 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 {
 	self = [super init];
 	
+#if DEBUG
+	NSAssert(NO, @"Invalid node created!");
+#endif
+	
 	if ([self isKindOfClass:[DDXMLInvalidNode class]])
 	{
 		return self;
@@ -363,23 +367,18 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 #pragma mark Equality
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (BOOL)isEqual:(id)anObject
+- (BOOL)isEqual:(id)object
 {
-	// DDXMLNode, DDXMLElement, and DDXMLDocument are simply light-weight wrappers atop a libxml structure.
-	// 
-	// To provide maximum speed and thread-safety,
-	// multiple DDXML wrapper objects may be created that wrap the same underlying libxml node.
-	// 
-	// Thus equality is simply a matter of what underlying libxml node DDXML is wrapping.
+	if (![object isKindOfClass: DDXMLNode.class])
+		return NO;
+	DDXMLNode *other = (DDXMLNode *)object;
 	
-	if ([anObject class] == [self class])
-	{
-		DDXMLNode *aNode = (DDXMLNode *)anObject;
-		
-		return (genericPtr == aNode->genericPtr);
-	}
-	
-	return NO;
+	return (self.kind == other.kind
+			&& (self.name == other.name || [self.name isEqualToString: other.name])
+			&& (self.stringValue == other.stringValue || [self.stringValue isEqualToString: other.stringValue])
+			&& (self.URI == other.URI || [self.URI isEqualToString: other.URI])
+			&& self.childCount == other.childCount
+			&& (self.children == other.children || [self.children isEqualToArray: other.children]));
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1994,6 +1993,7 @@ static void MyErrorHandler(void * userData, xmlErrorPtr error)
 	}
 }
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark Zombie Tracking
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2106,7 +2106,7 @@ static void MarkBirth(void *xmlPtr, DDXMLNode *wrapper)
 {
 	// This method only exists if DDXML_DEBUG_MEMORY_ISSUES is enabled.
 	
-	const void *value = (void *)wrapper;
+	const void *value = (__bridge void *)wrapper;
 	
 	dispatch_async(zombieQueue, ^{
 		
@@ -2132,7 +2132,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper)
 {
 	// This method only exists if DDXML_DEBUG_MEMORY_ISSUES is enabled.
 	
-	const void *value = (void *)wrapper;
+	const void *value = (__bridge void *)wrapper;
 	
 	dispatch_async(zombieQueue, ^{
 		
@@ -2157,7 +2157,7 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 	
 	__block BOOL result;
 	
-	const void *value = (void *)wrapper;
+	const void *value = (__bridge void *)wrapper;
 	
 	dispatch_sync(zombieQueue, ^{
 		

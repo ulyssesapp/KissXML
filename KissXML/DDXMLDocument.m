@@ -92,7 +92,7 @@
 	xmlKeepBlanksDefault(0);
 	
 	[DDXMLNode installErrorHandlersInThread];
-	xmlDocPtr doc = xmlParseMemory([data bytes], [data length]);
+	xmlDocPtr doc = xmlParseMemory([data bytes], (int)[data length]);
 	if (doc == NULL)
 	{
 		NSError *lastError = [DDXMLNode lastError];
@@ -103,6 +103,33 @@
 	}
 	
 	return [self initWithDocPrimitive:doc owner:nil];
+}
+
+- (id)initWithRootElement:(DDXMLElement *)element
+{
+	unsigned char verison[] = "1.0";
+	xmlDocPtr doc = xmlNewDoc(verison);
+	
+	self = [self initWithDocPrimitive:doc owner:nil];
+	if (self) {
+		[self setRootElement: element];
+	}
+	
+	return self;
+}
+
+
+- (void)setRootElement:(DDXMLNode *)root
+{
+	// NSXML version uses these same assertions
+	DDXMLAssert([root _hasParent] == NO, @"Cannot add a child that has a parent; detach or copy first");
+	DDXMLAssert(IsXmlNodePtr(root->genericPtr),
+	            @"Elements can only have text, elements, processing instructions, and comments as children");
+	
+	xmlDocSetRootElement((xmlDocPtr)genericPtr, (xmlNodePtr)root->genericPtr);
+	
+	// The node is now part of the xml tree heirarchy
+	root->owner = self;
 }
 
 /**
@@ -138,6 +165,21 @@
 	// Zombie test occurs in XMLString
 	
 	return [[self XMLStringWithOptions:options] dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark - Equality
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+- (BOOL)isEqual:(id)object
+{
+	if (![super isEqual: object])
+		return NO;
+	
+	DDXMLDocument *other = (DDXMLDocument *)object;
+	return (self.rootElement == other.rootElement || [self.rootElement isEqual: other.rootElement]);
 }
 
 @end
