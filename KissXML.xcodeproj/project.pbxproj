@@ -230,7 +230,7 @@
 			name = KissXMLTests;
 			productName = KissXMLTests;
 			productReference = 40E53EE41729F68F001664EC /* KissXMLTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -238,7 +238,7 @@
 		40E53ECB1729F68F001664EC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastTestingUpgradeCheck = 0510;
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Robbie Hanson with modifications from Tipbit, Inc.";
 			};
