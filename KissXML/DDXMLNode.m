@@ -1208,7 +1208,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 	return [self nodesForXPath:xpath namespaceMappings:nil error:error];
 }
 
-- (NSArray *)nodesForXPath:(NSString *)xpath namespaceMappings:namespaceMappings error:(NSError **)error
+- (NSArray *)nodesForXPath:(NSString *)xpath namespaceMappings:(NSDictionary *)namespaceMappings error:(NSError **)error
 {
 #if DDXML_DEBUG_MEMORY_ISSUES
 	DDXMLNotZombieAssert();
