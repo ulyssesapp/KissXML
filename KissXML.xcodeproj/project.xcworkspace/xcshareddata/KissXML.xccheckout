@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4395EDBA-BAFC-465E-958C-AD04E5460FD0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>KissXML</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1000285B045591386EA6AF8472752EBBC3EB0618</key>
+		<string>ssh://stash.the-soulmen.com:7999/ul/ulysses.git</string>
+		<key>70A8537565E8EBD1B9D364933832E742DD9D1D11</key>
+		<string>https://github.com/macguru/KissXML</string>
+		<key>8F3D90BABDDB705A12E69FE3C5E1BDCDBBF7E94B</key>
+		<string>ssh://stash.the-soulmen.com:7999/lib/rtfkit.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>KissXML.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1000285B045591386EA6AF8472752EBBC3EB0618</key>
+		<string>../../../../../..</string>
+		<key>70A8537565E8EBD1B9D364933832E742DD9D1D11</key>
+		<string>../..</string>
+		<key>8F3D90BABDDB705A12E69FE3C5E1BDCDBBF7E94B</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/macguru/KissXML</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>70A8537565E8EBD1B9D364933832E742DD9D1D11</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8F3D90BABDDB705A12E69FE3C5E1BDCDBBF7E94B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1000285B045591386EA6AF8472752EBBC3EB0618</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>70A8537565E8EBD1B9D364933832E742DD9D1D11</string>
+			<key>IDESourceControlWCCName</key>
+			<string>KissXML</string>
+		</dict>
+	</array>
+</dict>
+</plist>
