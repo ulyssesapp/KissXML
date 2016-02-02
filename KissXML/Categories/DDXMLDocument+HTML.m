@@ -37,13 +37,13 @@ typedef NSUInteger DocumentContent;
     xmlDocPtr doc;
     if (HTMLDocument == content) {
         doc = htmlReadMemory(
-            [data bytes], [data length],
-            "", NULL, options
+            [data bytes], (int)[data length],
+            "", NULL, (int)options
         ); 
     } else {
         doc = xmlReadMemory(
-            [data bytes], [data length],
-            "", NULL, options
+            [data bytes], (int)[data length],
+            "", NULL, (int)options
         );
     }
 
