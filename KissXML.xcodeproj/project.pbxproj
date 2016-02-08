@@ -23,8 +23,6 @@
 		79A76BAF1B0CD8C200FF7EF6 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A76BAE1B0CD8C200FF7EF6 /* libxml2.dylib */; };
 		CFAF60F71C5FA0E90069290F /* DDXMLDocument+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = CFAF60F31C5FA0E90069290F /* DDXMLDocument+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CFAF60F81C5FA0E90069290F /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF60F41C5FA0E90069290F /* DDXMLDocument+HTML.m */; };
-		CFAF60F91C5FA0E90069290F /* DDXMLNode+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = CFAF60F51C5FA0E90069290F /* DDXMLNode+HTML.h */; };
-		CFAF60FA1C5FA0E90069290F /* DDXMLNode+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = CFAF60F61C5FA0E90069290F /* DDXMLNode+HTML.m */; };
 		CFAF60FC1C5FA41F0069290F /* DDXML+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = CFAF60FB1C5FA41F0069290F /* DDXML+HTML.h */; };
 /* End PBXBuildFile section */
 
@@ -50,8 +48,6 @@
 		79A76BAE1B0CD8C200FF7EF6 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		CFAF60F31C5FA0E90069290F /* DDXMLDocument+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXMLDocument+HTML.h"; sourceTree = "<group>"; };
 		CFAF60F41C5FA0E90069290F /* DDXMLDocument+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDXMLDocument+HTML.m"; sourceTree = "<group>"; };
-		CFAF60F51C5FA0E90069290F /* DDXMLNode+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXMLNode+HTML.h"; sourceTree = "<group>"; };
-		CFAF60F61C5FA0E90069290F /* DDXMLNode+HTML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DDXMLNode+HTML.m"; sourceTree = "<group>"; };
 		CFAF60FB1C5FA41F0069290F /* DDXML+HTML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DDXML+HTML.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -130,8 +126,6 @@
 				CFAF60FB1C5FA41F0069290F /* DDXML+HTML.h */,
 				CFAF60F31C5FA0E90069290F /* DDXMLDocument+HTML.h */,
 				CFAF60F41C5FA0E90069290F /* DDXMLDocument+HTML.m */,
-				CFAF60F51C5FA0E90069290F /* DDXMLNode+HTML.h */,
-				CFAF60F61C5FA0E90069290F /* DDXMLNode+HTML.m */,
 				40E53F021729F71E001664EC /* NSString+DDXML.h */,
 				40E53F031729F71E001664EC /* NSString+DDXML.m */,
 			);
@@ -169,7 +163,6 @@
 				CFAF60F71C5FA0E90069290F /* DDXMLDocument+HTML.h in Headers */,
 				79A76BA21B0CD83800FF7EF6 /* DDXMLElement.h in Headers */,
 				79A76BA31B0CD83800FF7EF6 /* DDXMLNode.h in Headers */,
-				CFAF60F91C5FA0E90069290F /* DDXMLNode+HTML.h in Headers */,
 				CFAF60FC1C5FA41F0069290F /* DDXML+HTML.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,7 +238,6 @@
 				79A76B991B0CD82400FF7EF6 /* DDXMLElementAdditions.m in Sources */,
 				CFAF60F81C5FA0E90069290F /* DDXMLDocument+HTML.m in Sources */,
 				79A76B9A1B0CD82400FF7EF6 /* NSString+DDXML.m in Sources */,
-				CFAF60FA1C5FA0E90069290F /* DDXMLNode+HTML.m in Sources */,
 				79A76B9B1B0CD82400FF7EF6 /* DDXMLDocument.m in Sources */,
 				79A76B9C1B0CD82400FF7EF6 /* DDXMLElement.m in Sources */,
 				79A76B9D1B0CD82400FF7EF6 /* DDXMLNode.m in Sources */,
