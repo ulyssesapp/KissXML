@@ -17,7 +17,7 @@
 	
 	xmlKeepBlanksDefault(0);
 	
-	xmlDocPtr doc = htmlReadMemory(data.bytes, (int)data.length, "", NULL, (int)options);
+	xmlDocPtr doc = htmlReadMemory(data.bytes, (int)data.length, "", NULL, (int)options | HTML_PARSE_NOWARNING | HTML_PARSE_NOERROR);
 	if (!doc) {
 		if (error) *error = [NSError errorWithDomain:@"DDXMLErrorDomain" code:1 userInfo:nil];
 		return nil;

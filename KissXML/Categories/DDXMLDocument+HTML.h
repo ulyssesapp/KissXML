@@ -4,12 +4,8 @@
 
 @interface DDXMLDocument (HTML)
 
-- (id)initWithHTMLString:(NSString *)string
-                 options:(NSUInteger)options
-                   error:(NSError **)error;
+- (instancetype)initWithHTMLString:(NSString *)string options:(NSUInteger)options error:(NSError **)error;
 
-- (id)initWithHTMLData:(NSData *)data
-               options:(NSUInteger)options
-                 error:(NSError **)error;
+- (instancetype)initWithHTMLData:(NSData *)data options:(NSUInteger)options error:(NSError **)error;
 
 @end
