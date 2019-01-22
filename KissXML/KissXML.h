@@ -1,19 +1,14 @@
-//
-//  KissXML.h
-//  KissXML
-//
-//  Created by Friedrich Gräter on 20/05/15.
-//  Copyright (c) 2015 Robbie Hanson with modifications from Tipbit, Inc. All rights reserved.
-//
+@import Foundation;
 
-#import <UIKit/UIKit.h>
+#import "DDXMLElementAdditions.h"
+#import "NSString+DDXML.h"
+#import "DDXML.h"
+#import "DDXMLDocument.h"
+#import "DDXMLElement.h"
+#import "DDXMLNode.h"
 
-//! Project version number for KissXML.
+#import "DDXMLDocument+HTML.h"
+
 FOUNDATION_EXPORT double KissXMLVersionNumber;
-
-//! Project version string for KissXML.
 FOUNDATION_EXPORT const unsigned char KissXMLVersionString[];
-
-// In this header, you should import all the public headers of your framework using statements like #import <KissXML/PublicHeader.h>
-
 
