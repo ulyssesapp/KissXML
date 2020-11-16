@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <libxml/HTMLparser.h>
-#import "DDXMLDocument.h"
+#import <KissXML/DDXMLDocument.h>
 
 @interface DDXMLDocument (HTML)
 
