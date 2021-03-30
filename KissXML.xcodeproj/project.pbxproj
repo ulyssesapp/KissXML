@@ -20,6 +20,8 @@
 		0DCD8DF11E54A3C6001D9832 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD8DE21E54A3C6001D9832 /* DDXMLNode.m */; };
 		0DCD8DF21E54A3C6001D9832 /* KissXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCD8DE31E54A3C6001D9832 /* KissXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DCD8DF31E54A3C6001D9832 /* DDXMLPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCD8DE51E54A3C6001D9832 /* DDXMLPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		17E97DA9261323F400E01575 /* DDXMLDocument+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 795B293621F5D9730061C3DF /* DDXMLDocument+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		17E97DAA261323FD00E01575 /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B293821F5D9730061C3DF /* DDXMLDocument+HTML.m */; };
 		795B293921F5D9730061C3DF /* DDXMLDocument+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 795B293621F5D9730061C3DF /* DDXMLDocument+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		795B293B21F5D9730061C3DF /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B293821F5D9730061C3DF /* DDXMLDocument+HTML.m */; };
 		D94131A21E5CEB7800189BD5 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD8DF51E54A3E9001D9832 /* libxml2.tbd */; };
@@ -234,6 +236,7 @@
 				D94131B11E5CEBE700189BD5 /* NSString+DDXML.h in Headers */,
 				D94131B21E5CEBE700189BD5 /* DDXMLElement.h in Headers */,
 				D94131B31E5CEBE700189BD5 /* DDXMLElementAdditions.h in Headers */,
+				17E97DA9261323F400E01575 /* DDXMLDocument+HTML.h in Headers */,
 				D94131B41E5CEBE700189BD5 /* KissXML.h in Headers */,
 				D94131B51E5CEBE700189BD5 /* DDXMLPrivate.h in Headers */,
 			);
@@ -434,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D94131A61E5CEBE700189BD5 /* DDXMLElementAdditions.m in Sources */,
+				17E97DAA261323FD00E01575 /* DDXMLDocument+HTML.m in Sources */,
 				D94131A71E5CEBE700189BD5 /* DDXMLDocument.m in Sources */,
 				D94131A81E5CEBE700189BD5 /* DDXMLNode.m in Sources */,
 				D94131A91E5CEBE700189BD5 /* DDXMLElement.m in Sources */,
