@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D94131A31E5CEBE700189BD5"
+               BlueprintIdentifier = "0DCD8DC91E54A3A3001D9832"
                BuildableName = "KissXML.framework"
-               BlueprintName = "KissXML (macOS)"
+               BlueprintName = "KissXML"
                ReferencedContainer = "container:KissXML.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,9 +43,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D94131A31E5CEBE700189BD5"
+            BlueprintIdentifier = "0DCD8DC91E54A3A3001D9832"
             BuildableName = "KissXML.framework"
-            BlueprintName = "KissXML (macOS)"
+            BlueprintName = "KissXML"
             ReferencedContainer = "container:KissXML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -59,9 +59,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D94131A31E5CEBE700189BD5"
+            BlueprintIdentifier = "0DCD8DC91E54A3A3001D9832"
             BuildableName = "KissXML.framework"
-            BlueprintName = "KissXML (macOS)"
+            BlueprintName = "KissXML"
             ReferencedContainer = "container:KissXML.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
