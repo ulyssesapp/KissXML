@@ -1,4 +1,4 @@
-@import Foundation;
+#import <Foundation/Foundation.h>
 
 #import <KissXML/DDXMLElementAdditions.h>
 #import <KissXML/NSString+DDXML.h>
