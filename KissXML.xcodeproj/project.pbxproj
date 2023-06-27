@@ -19,7 +19,6 @@
 		0DCD8DF01E54A3C6001D9832 /* DDXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCD8DE11E54A3C6001D9832 /* DDXMLNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0DCD8DF11E54A3C6001D9832 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DCD8DE21E54A3C6001D9832 /* DDXMLNode.m */; };
 		0DCD8DF21E54A3C6001D9832 /* KissXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCD8DE31E54A3C6001D9832 /* KissXML.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0DCD8DF31E54A3C6001D9832 /* DDXMLPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DCD8DE51E54A3C6001D9832 /* DDXMLPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		795B293921F5D9730061C3DF /* DDXMLDocument+HTML.h in Headers */ = {isa = PBXBuildFile; fileRef = 795B293621F5D9730061C3DF /* DDXMLDocument+HTML.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		795B293B21F5D9730061C3DF /* DDXMLDocument+HTML.m in Sources */ = {isa = PBXBuildFile; fileRef = 795B293821F5D9730061C3DF /* DDXMLDocument+HTML.m */; };
 		D94131A21E5CEB7800189BD5 /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DCD8DF51E54A3E9001D9832 /* libxml2.tbd */; };
@@ -148,7 +147,6 @@
 				0DCD8DE61E54A3C6001D9832 /* DDXMLElementAdditions.h in Headers */,
 				795B293921F5D9730061C3DF /* DDXMLDocument+HTML.h in Headers */,
 				0DCD8DF21E54A3C6001D9832 /* KissXML.h in Headers */,
-				0DCD8DF31E54A3C6001D9832 /* DDXMLPrivate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
