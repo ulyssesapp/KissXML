@@ -20,7 +20,7 @@
  * https://github.com/robbiehanson/KissXML/wiki/Reference
 **/
 
-enum {
+typedef NS_ENUM(NSUInteger, DDXMLNodeKind) {
 	DDXMLInvalidKind NS_SWIFT_NAME(XMLInvalidKind)                = 0,
 	DDXMLDocumentKind NS_SWIFT_NAME(XMLDocumentKind),
 	DDXMLElementKind NS_SWIFT_NAME(XMLElementKind),
@@ -35,9 +35,8 @@ enum {
 	DDXMLElementDeclarationKind NS_SWIFT_NAME(XMLElementDeclarationKind),
 	DDXMLNotationDeclarationKind NS_SWIFT_NAME(XMLNotationDeclarationKind)
 };
-typedef NSUInteger DDXMLNodeKind NS_SWIFT_NAME(XMLNodeKind);
 
-enum {
+typedef NS_OPTIONS(NSUInteger, DDXMLNodeOptions) {
 	DDXMLNodeOptionsNone NS_SWIFT_NAME(XMLNodeOptionsNone)                  = 0,
 	DDXMLNodeExpandEmptyElement NS_SWIFT_NAME(XMLNodeExpandEmptyElement)    = 1 << 1,
 	DDXMLNodeCompactEmptyElement NS_SWIFT_NAME(XMLNodeCompactEmptyElement)  = 1 << 2,
@@ -50,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //- (instancetype)initWithKind:(DDXMLNodeKind)kind;
 
-//- (instancetype)initWithKind:(DDXMLNodeKind)kind options:(NSUInteger)options;
+//- (instancetype)initWithKind:(DDXMLNodeKind)kind options:(DDXMLNodeOptions)options;
 
 //+ (instancetype)document;
 
@@ -128,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly, copy) NSString *description;
 @property (readonly, copy) NSString *XMLString;
-- (nonnull NSString *)XMLStringWithOptions:(NSUInteger)options;
+- (nonnull NSString *)XMLStringWithOptions:(DDXMLNodeOptions)options;
 //- (NSString *)canonicalXMLStringPreservingComments:(BOOL)comments;
 
 #pragma mark --- XPath/XQuery ---

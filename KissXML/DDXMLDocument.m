@@ -63,7 +63,7 @@
  * Returns an initialized DDXMLDocument object, or nil if initialization fails
  * because of parsing errors or other reasons.
 **/
-- (instancetype)initWithXMLString:(NSString *)string options:(NSUInteger)mask error:(NSError **)error
+- (instancetype)initWithXMLString:(NSString *)string options:(DDXMLNodeOptions)mask error:(NSError **)error
 {
 	return [self initWithData:[string dataUsingEncoding:NSUTF8StringEncoding]
 	                  options:mask
@@ -76,7 +76,7 @@
  * Returns an initialized DDXMLDocument object, or nil if initialization fails
  * because of parsing errors or other reasons.
 **/
-- (instancetype)initWithData:(NSData *)data options:(NSUInteger)mask error:(NSError **)error
+- (instancetype)initWithData:(NSData *)data options:(DDXMLNodeOptions)mask error:(NSError **)error
 {
 	if (data == nil || [data length] == 0)
 	{
@@ -161,7 +161,7 @@
 	return [[self XMLString] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSData *)XMLDataWithOptions:(NSUInteger)options
+- (NSData *)XMLDataWithOptions:(DDXMLNodeOptions)options
 {
 	// Zombie test occurs in XMLString
 	

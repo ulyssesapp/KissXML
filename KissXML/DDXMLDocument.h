@@ -33,9 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 {
 }
 
-- (nullable instancetype)initWithXMLString:(NSString *)string options:(NSUInteger)mask error:(NSError **)error;
-//- (instancetype)initWithContentsOfURL:(NSURL *)url options:(NSUInteger)mask error:(NSError **)error;
-- (nullable instancetype)initWithData:(NSData *)data options:(NSUInteger)mask error:(NSError **)error;
+- (nullable instancetype)initWithXMLString:(NSString *)string options:(DDXMLNodeOptions)mask error:(NSError **)error;
+//- (instancetype)initWithContentsOfURL:(NSURL *)url options:(DDXMLNodeOptions)mask error:(NSError **)error;
+- (nullable instancetype)initWithData:(NSData *)data options:(DDXMLNodeOptions)mask error:(NSError **)error;
 - (instancetype)initWithRootElement:(DDXMLElement *)element;
 
 //+ (Class)replacementClassForClass:(Class)cls;
@@ -74,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 //- (void)replaceChildAtIndex:(NSUInteger)index withNode:(DDXMLNode *)node;
 
 @property (readonly, copy) NSData *XMLData;
-- (NSData *)XMLDataWithOptions:(NSUInteger)options;
+- (NSData *)XMLDataWithOptions:(DDXMLNodeOptions)options;
 
 //- (instancetype)objectByApplyingXSLT:(NSData *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
 //- (instancetype)objectByApplyingXSLTString:(NSString *)xslt arguments:(NSDictionary *)arguments error:(NSError **)error;
