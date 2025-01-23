@@ -1,7 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <libxml/HTMLparser.h>
-#import <KissXML/DDXMLDocument.h>
-
+#import "DDXMLDocument.h"
 @interface DDXMLDocument (HTML)
 
 - (instancetype)initWithHTMLString:(NSString *)string options:(NSUInteger)options error:(NSError **)error;

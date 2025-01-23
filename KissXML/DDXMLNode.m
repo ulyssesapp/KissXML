@@ -111,18 +111,18 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 
 + (id)attributeWithName:(NSString *)name stringValue:(NSString *)stringValue
 {
-	xmlAttrPtr attr = xmlNewProp(NULL, [name xmlChar], [stringValue xmlChar]);
+	xmlAttrPtr attr = xmlNewProp(NULL, [name dd_xmlChar], [stringValue dd_xmlChar]);
 	
-	if (attr == NULL) return nil;
+	if (attr == NULL) return [[self alloc] init];
 	
 	return [[DDXMLAttributeNode alloc] initWithAttrPrimitive:attr owner:nil];
 }
 
 + (id)attributeWithName:(NSString *)name URI:(NSString *)URI stringValue:(NSString *)stringValue
 {
-	xmlAttrPtr attr = xmlNewProp(NULL, [name xmlChar], [stringValue xmlChar]);
+	xmlAttrPtr attr = xmlNewProp(NULL, [name dd_xmlChar], [stringValue dd_xmlChar]);
 	
-	if (attr == NULL) return nil;
+	if (attr == NULL) return [[self alloc] init];
 	
 	DDXMLAttributeNode *result = [[DDXMLAttributeNode alloc] initWithAttrPrimitive:attr owner:nil];
 	[result setURI:URI];
@@ -133,38 +133,38 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 + (id)namespaceWithName:(NSString *)name stringValue:(NSString *)stringValue
 {
 	// If the user passes a nil or empty string name, they are trying to create a default namespace
-	const xmlChar *xmlName = [name length] > 0 ? [name xmlChar] : NULL;
+	const xmlChar *xmlName = [name length] > 0 ? [name dd_xmlChar] : NULL;
 	
-	xmlNsPtr ns = xmlNewNs(NULL, [stringValue xmlChar], xmlName);
+	xmlNsPtr ns = xmlNewNs(NULL, [stringValue dd_xmlChar], xmlName);
 	
-	if (ns == NULL) return nil;
+	if (ns == NULL) return [[self alloc] init];
 	
 	return [[DDXMLNamespaceNode alloc] initWithNsPrimitive:ns nsParent:NULL owner:nil];
 }
 
 + (id)processingInstructionWithName:(NSString *)name stringValue:(NSString *)stringValue
 {
-	xmlNodePtr procInst = xmlNewPI([name xmlChar], [stringValue xmlChar]);
+	xmlNodePtr procInst = xmlNewPI([name dd_xmlChar], [stringValue dd_xmlChar]);
 	
-	if (procInst == NULL) return nil;
+	if (procInst == NULL) return [[self alloc] init];
 	
 	return [[DDXMLNode alloc] initWithPrimitive:(xmlKindPtr)procInst owner:nil];
 }
 
 + (id)commentWithStringValue:(NSString *)stringValue
 {
-	xmlNodePtr comment = xmlNewComment([stringValue xmlChar]);
+	xmlNodePtr comment = xmlNewComment([stringValue dd_xmlChar]);
 	
-	if (comment == NULL) return nil;
+	if (comment == NULL) return [[self alloc] init];
 	
 	return [[DDXMLNode alloc] initWithPrimitive:(xmlKindPtr)comment owner:nil];
 }
 
 + (id)textWithStringValue:(NSString *)stringValue
 {
-	xmlNodePtr text = xmlNewText([stringValue xmlChar]);
+	xmlNodePtr text = xmlNewText([stringValue dd_xmlChar]);
 	
-	if (text == NULL) return nil;
+	if (text == NULL) return [[self alloc] init];
 	
 	return [[DDXMLNode alloc] initWithPrimitive:(xmlKindPtr)text owner:nil];
 }
@@ -409,7 +409,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 #endif
 	
 	// The xmlNodeSetName function works for both nodes and attributes
-	xmlNodeSetName((xmlNodePtr)genericPtr, [name xmlChar]);
+	xmlNodeSetName((xmlNodePtr)genericPtr, [name dd_xmlChar]);
 }
 
 - (NSString *)name
@@ -463,7 +463,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 		// Therefore, we need to remove them properly first.
 		[[self class] removeAllChildrenFromNode:(xmlNodePtr)node];
 		
-		xmlChar *escapedString = xmlEncodeSpecialChars(node->doc, [string xmlChar]);
+		xmlChar *escapedString = xmlEncodeSpecialChars(node->doc, [string dd_xmlChar]);
 		xmlNodeSetContent((xmlNodePtr)node, escapedString);
 		xmlFree(escapedString);
 	}
@@ -995,7 +995,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 		if (URI)
 		{
 			// Create a new xmlNsPtr, add it to the nsDef list, and make ns point to it
-			xmlNsPtr ns = xmlNewNs(NULL, [URI xmlChar], NULL);
+			xmlNsPtr ns = xmlNewNs(NULL, [URI dd_xmlChar], NULL);
 			ns->next = node->nsDef;
 			node->nsDef = ns;
 			node->ns = ns;
@@ -1177,20 +1177,16 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 		return @"";
 	}
     
-    NSMutableString *xmlString;
+	NSMutableString *xmlString = [NSMutableString stringWithUTF8String:(const char *)bufferPtr->content];
+	xmlBufferFree(bufferPtr);
 	
-	if ([self kind] == DDXMLTextKind)
-	{
-		xmlString = [NSMutableString stringWithUTF8String:(const char *)bufferPtr->content];
-		
-		xmlBufferFree(bufferPtr);
+	if (xmlString == nil) {
+		return @"";
 	}
-	else
+	
+	if ([self kind] != DDXMLTextKind)
 	{
-		xmlString = [NSMutableString stringWithUTF8String:(const char *)bufferPtr->content];
 		CFStringTrimWhitespace((__bridge CFMutableStringRef)xmlString);
-		
-		xmlBufferFree(bufferPtr);
 	}
     
     // Revert wide unicode characters in XML Attribute string values
@@ -1252,7 +1248,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 		}
 	}
 	
-	xpathObj = xmlXPathEvalExpression([xpath xmlChar], xpathCtx);
+	xpathObj = xmlXPathEvalExpression([xpath dd_xmlChar], xpathCtx);
 	
 	NSArray *result;
 	
@@ -1336,7 +1332,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 // Example #2 - Asynchronous child processing
 // 
 // DDXMLElement *root = [[DDXMLElement alloc] initWithXMLString:str error:nil];
-// DDXMLElement *child = [root elementForName:@"starbucks"];
+// DDXMLElement *child = [root dd_elementForName:@"starbucks"];
 // 
 // dispatch_async(queue, ^{
 //     <process child>
@@ -1961,7 +1957,7 @@ static void MarkDeath(void *xmlPtr, DDXMLNode *wrapper);
 		[lastErrorValue getValue:&lastError];
 		
 		int errCode = lastError.code;
-		NSString *errMsg = [[NSString stringWithFormat:@"%s", lastError.message] stringByTrimming];
+		NSString *errMsg = [[NSString stringWithFormat:@"%s", lastError.message] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
 		
 		NSDictionary *info = [NSDictionary dictionaryWithObject:errMsg forKey:NSLocalizedDescriptionKey];
 			
@@ -2269,7 +2265,7 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 	xmlNsPtr ns = (xmlNsPtr)genericPtr;
 	
 	xmlFree((xmlChar *)ns->prefix);
-	ns->prefix = xmlStrdup([name xmlChar]);
+	ns->prefix = xmlStrdup([name dd_xmlChar]);
 }
 
 - (NSString *)name
@@ -2294,7 +2290,7 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 	xmlNsPtr ns = (xmlNsPtr)genericPtr;
 	
 	xmlFree((xmlChar *)ns->href);
-	ns->href = xmlEncodeSpecialChars(NULL, [string xmlChar]);
+	ns->href = xmlEncodeSpecialChars(NULL, [string dd_xmlChar]);
 }
 
 - (NSString *)stringValue
@@ -2630,13 +2626,13 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 	
 	if (attr->children != NULL)
 	{
-		xmlChar *escapedString = xmlEncodeSpecialChars(attr->doc, [string xmlChar]);
+		xmlChar *escapedString = xmlEncodeSpecialChars(attr->doc, [string dd_xmlChar]);
 		xmlNodeSetContent((xmlNodePtr)attr, escapedString);
 		xmlFree(escapedString);
 	}
 	else
 	{
-		xmlNodePtr text = xmlNewText([string xmlChar]);
+		xmlNodePtr text = xmlNewText([string dd_xmlChar]);
 		attr->children = text;
 	}
 }
@@ -2760,7 +2756,7 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 		// If there's a namespace defined further up the tree with this URI,
 		// then we want attr->ns to point to it.
 		
-		const xmlChar *uri = [URI xmlChar];
+		const xmlChar *uri = [URI dd_xmlChar];
 		
 		xmlNodePtr parent = attr->parent;
 		while (parent)
@@ -2813,7 +2809,7 @@ BOOL DDXMLIsZombie(void *xmlPtr, DDXMLNode *wrapper)
 	NSString *prefix = [self prefix];
 	if ([prefix length] > 0)
 	{
-		xmlNsPtr ns = xmlSearchNs(attr->doc, attr->parent, [prefix xmlChar]);
+		xmlNsPtr ns = xmlSearchNs(attr->doc, attr->parent, [prefix dd_xmlChar]);
 		if (ns && ns->href)
 		{
 			return [NSString stringWithUTF8String:((const char *)ns->href)];

@@ -16,9 +16,9 @@
  * https://github.com/robbiehanson/KissXML/wiki/Reference
 **/
 
-#import <KissXML/DDXMLNode.h>
-#import <KissXML/DDXMLElement.h>
-#import <KissXML/DDXMLDocument.h>
+#import "DDXMLNode.h"
+#import "DDXMLElement.h"
+#import "DDXMLDocument.h"
 
 #if TARGET_OS_IPHONE
 
