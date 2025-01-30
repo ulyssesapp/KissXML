@@ -38,6 +38,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable instancetype)initWithData:(NSData *)data options:(DDXMLNodeOptions)mask error:(NSError **)error;
 - (instancetype)initWithRootElement:(DDXMLElement *)element;
 
+- (instancetype)initWithHTMLString:(NSString *)string options:(NSInteger)options error:(NSError **)error;
+
+- (instancetype)initWithHTMLData:(NSData *)data options:(NSInteger)options error:(NSError **)error;
+
 //+ (Class)replacementClassForClass:(Class)cls;
 
 //- (void)setCharacterEncoding:(NSString *)encoding; //primitive
