@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import <KissXML/DDXMLElement.h>
-#import <KissXML/DDXMLNode.h>
+#import "DDXMLElement.h"
+#import "DDXMLNode.h"
 
 /**
  * Welcome to KissXML.
@@ -37,6 +37,10 @@ NS_ASSUME_NONNULL_BEGIN
 //- (instancetype)initWithContentsOfURL:(NSURL *)url options:(DDXMLNodeOptions)mask error:(NSError **)error;
 - (nullable instancetype)initWithData:(NSData *)data options:(DDXMLNodeOptions)mask error:(NSError **)error;
 - (instancetype)initWithRootElement:(DDXMLElement *)element;
+
+- (instancetype)initWithHTMLString:(NSString *)string options:(NSInteger)options error:(NSError **)error;
+
+- (instancetype)initWithHTMLData:(NSData *)data options:(NSInteger)options error:(NSError **)error;
 
 //+ (Class)replacementClassForClass:(Class)cls;
 

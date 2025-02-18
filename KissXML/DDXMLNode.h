@@ -61,6 +61,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (id)elementWithName:(NSString *)name stringValue:(NSString *)string;
 
++ (id)elementWithName:(NSString *)name cdata:(NSString *)cdata;
+
 + (id)elementWithName:(NSString *)name children:(nullable NSArray<DDXMLNode *> *)children attributes:(nullable NSArray<DDXMLNode *> *)attributes;
 
 + (id)attributeWithName:(NSString *)name stringValue:(NSString *)stringValue;

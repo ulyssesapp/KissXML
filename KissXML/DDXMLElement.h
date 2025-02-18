@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-#import <KissXML/DDXMLNode.h>
+#import "DDXMLNode.h"
 
 /**
  * Welcome to KissXML.
@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithName:(NSString *)name;
 - (instancetype)initWithName:(NSString *)name URI:(nullable NSString *)URI;
 - (instancetype)initWithName:(NSString *)name stringValue:(nullable NSString *)string;
+- (id)initWithName:(NSString *)name cdata:(NSString *)cdata;
 - (nullable instancetype)initWithXMLString:(NSString *)string error:(NSError **)error;
 
 #pragma mark --- Elements by name ---
