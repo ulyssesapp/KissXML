@@ -1,17 +1,18 @@
-// swift-tools-version:5.1
+// swift-tools-version:6.2
 import PackageDescription
 
 let package = Package(
     name: "KissXML",
     platforms: [
-        .macOS(.v10_10),
-        .iOS(.v9),
-        .tvOS(.v9),
-        .watchOS(.v2)
+        .macOS(.v15),
+        .iOS(.v18),
+        .tvOS(.v18),
+        .watchOS(.v11)
     ],
     products: [
         .library(
             name: "KissXML",
+			type: .dynamic,
             targets: ["KissXML"]
         )
     ],
@@ -25,6 +26,9 @@ let package = Package(
                 .headerSearchPath("Additions"),
                 .headerSearchPath("Categories"),
                 .headerSearchPath("Private")
+            ],
+            linkerSettings: [
+                .linkedLibrary("xml2")
             ]
         ),
         .testTarget(
@@ -32,6 +36,7 @@ let package = Package(
             dependencies: ["KissXML"],
             path: "Tests/Shared",
             sources: [
+                "DDAssertionHandler.m",
                 "KissXMLAssertionTests.m",
                 "KissXMLTests.m"
             ]
